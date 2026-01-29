@@ -28,7 +28,7 @@ public sealed class ProductApiTests : IClassFixture<ApiTestFixture>, IAsyncLifet
     }
 
     [Fact]
-    public async Task GivenValidProduct_WhenCreate_ThenReturns201AndPayload()
+    public async Task Create_returns_201_with_created_product()
     {
         var request = new CreateProductRequest
         {
@@ -48,7 +48,7 @@ public sealed class ProductApiTests : IClassFixture<ApiTestFixture>, IAsyncLifet
     }
 
     [Fact]
-    public async Task GivenInvalidProduct_WhenCreate_ThenReturns400()
+    public async Task Create_with_invalid_payload_returns_400()
     {
         var request = new CreateProductRequest
         {
@@ -62,7 +62,7 @@ public sealed class ProductApiTests : IClassFixture<ApiTestFixture>, IAsyncLifet
     }
 
     [Fact]
-    public async Task GivenMissingProduct_WhenGetById_ThenReturns404()
+    public async Task GetById_returns_404_when_product_is_missing()
     {
         var response = await _client.GetAsync($"/api/products/{Guid.NewGuid()}");
 
@@ -70,7 +70,7 @@ public sealed class ProductApiTests : IClassFixture<ApiTestFixture>, IAsyncLifet
     }
 
     [Fact]
-    public async Task GivenProducts_WhenListWithPagination_ThenReturns200AndMetadata()
+    public async Task List_returns_paged_result_with_metadata()
     {
         await _client.PostAsJsonAsync("/api/products", new CreateProductRequest
         {

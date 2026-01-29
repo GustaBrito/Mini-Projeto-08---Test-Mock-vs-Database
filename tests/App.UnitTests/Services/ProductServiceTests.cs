@@ -11,7 +11,7 @@ namespace App.UnitTests.Services;
 public sealed class ProductServiceTests
 {
     [Fact]
-    public async Task CreateAsync_WithValidRequest_NormalizesFieldsAndPersists()
+    public async Task Create_normalizes_fields_and_persists_product()
     {
         var repository = new Mock<IProductRepository>();
         Product? captured = null;
@@ -43,7 +43,7 @@ public sealed class ProductServiceTests
     }
 
     [Fact]
-    public async Task CreateAsync_WithInvalidName_Throws()
+    public async Task Create_throws_for_blank_name()
     {
         var repository = new Mock<IProductRepository>();
         var service = new ProductService(repository.Object);
@@ -60,7 +60,7 @@ public sealed class ProductServiceTests
     }
 
     [Fact]
-    public async Task CreateAsync_WithInvalidPrice_Throws()
+    public async Task Create_throws_for_non_positive_price()
     {
         var repository = new Mock<IProductRepository>();
         var service = new ProductService(repository.Object);
@@ -77,7 +77,7 @@ public sealed class ProductServiceTests
     }
 
     [Fact]
-    public async Task GetByIdAsync_WhenMissing_ReturnsNull()
+    public async Task GetById_returns_null_when_missing()
     {
         var repository = new Mock<IProductRepository>();
         repository
@@ -92,7 +92,7 @@ public sealed class ProductServiceTests
     }
 
     [Fact]
-    public async Task ListAsync_WithInvalidPagination_Throws()
+    public async Task List_throws_for_invalid_pagination()
     {
         var repository = new Mock<IProductRepository>();
         var service = new ProductService(repository.Object);
@@ -103,7 +103,7 @@ public sealed class ProductServiceTests
     }
 
     [Fact]
-    public async Task ListAsync_WithValidPagination_ReturnsPagedResult()
+    public async Task List_returns_paged_result()
     {
         var repository = new Mock<IProductRepository>();
         var products = new List<Product>

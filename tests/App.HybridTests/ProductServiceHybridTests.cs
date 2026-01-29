@@ -19,7 +19,7 @@ public sealed class ProductServiceHybridTests
     }
 
     [DockerFact]
-    public async Task CreateAndGetById_UsesRealDatabase()
+    public async Task Create_and_get_by_id_use_real_database()
     {
         var connectionString = await _fixture.CreateDatabaseAsync();
         try
@@ -55,7 +55,7 @@ public sealed class ProductServiceHybridTests
     }
 
     [DockerFact]
-    public async Task ListAsync_ReturnsPagedResult()
+    public async Task List_returns_paged_result()
     {
         var connectionString = await _fixture.CreateDatabaseAsync();
         try
