@@ -1,4 +1,6 @@
-﻿# Mini Project 08 - Testing Strategy: Mocks vs Real Database
+﻿![.NET](https://img.shields.io/badge/.NET-10.0-512BD4) ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-10.0-0A6ED1) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791) ![Testcontainers](https://img.shields.io/badge/Testcontainers-3.9-2E7D32) ![xUnit](https://img.shields.io/badge/xUnit-2.7-5B3FA7) ![License: MIT](https://img.shields.io/badge/License-MIT-green)
+
+# Mini Project 08 - Testing Strategy: Mocks vs Real Database
 
 ## 1. Project Overview
 This project demonstrates how to choose the right testing strategy for the same behavior in an ASP.NET Core Web API. The focus is not new features, but the trade-offs between unit tests with mocks, integration tests with a real database, and a hybrid approach.
@@ -100,3 +102,4 @@ This project demonstrates:
 - Validation and error handling patterns
 - Real database integration using Testcontainers
 - Clear separation of unit, integration, and hybrid testing scopes
+
